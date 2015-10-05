@@ -28,5 +28,10 @@
 	<string></string>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
 </dict>
 </plist>

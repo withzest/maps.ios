@@ -13,19 +13,19 @@
 @synthesize window;
 
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
-
-    mapViewController = [[NMapViewController alloc] init];	
-	[window addSubview:[mapViewController view]];	
+- (void)applicationDidFinishLaunching:(UIApplication *)application
+{
+    mapViewController = [[NMapViewController alloc] init];
+    window.rootViewController = mapViewController;
 	
     // Override point for customization after application launch
     [window makeKeyAndVisible];
 }
 
 
-- (void)dealloc {
+- (void)dealloc
+{
 	[mapViewController release];
-	
     [window release];
     [super dealloc];
 }
