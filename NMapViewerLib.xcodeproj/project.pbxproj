@@ -47,12 +47,11 @@
 		B06EBE20137164A200B5572C /* start_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B06EBE0A137164A200B5572C /* start_icon.png */; };
 		B06EBE21137164A200B5572C /* start_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B06EBE0B137164A200B5572C /* start_icon@2x.png */; };
 		B086408611885C73005E4A84 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B086408511885C73005E4A84 /* CoreLocation.framework */; };
-		B0864C01118AC11C005E4A84 /* libApiGateway-MAC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0864C00118AC11C005E4A84 /* libApiGateway-MAC.a */; };
 		B089F5601679EF010055D6B2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B089F55F1679EF010055D6B2 /* SystemConfiguration.framework */; };
-		B094CF3A11EED5590051C31A /* libNMapViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B094CF3911EED5590051C31A /* libNMapViewer.a */; };
 		B0CAC18A1175B98D00F882BD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0CAC1891175B98D00F882BD /* QuartzCore.framework */; };
-		B0CAC18E1175B9AD00F882BD /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B0CAC18D1175B9AD00F882BD /* libsqlite3.0.dylib */; };
 		B0CAC1A91175BDFC00F882BD /* NMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0CAC1A81175BDFC00F882BD /* NMapViewController.m */; };
+		EEE6BDF61BC3FDDD00F75CFB /* libNMapViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE6BDF51BC3FDDD00F75CFB /* libNMapViewer.a */; settings = {ASSET_TAGS = (); }; };
+		EEE6BDF81BC3FDE900F75CFB /* libApiGateway-MAC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE6BDF71BC3FDE900F75CFB /* libApiGateway-MAC.a */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,13 +100,12 @@
 		B06EBE0A137164A200B5572C /* start_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = start_icon.png; path = Resources/start_icon.png; sourceTree = "<group>"; };
 		B06EBE0B137164A200B5572C /* start_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "start_icon@2x.png"; path = "Resources/start_icon@2x.png"; sourceTree = "<group>"; };
 		B086408511885C73005E4A84 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		B0864C00118AC11C005E4A84 /* libApiGateway-MAC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libApiGateway-MAC.a"; path = "Lib/ApiGateway/libApiGateway-MAC.a"; sourceTree = "<group>"; };
 		B089F55F1679EF010055D6B2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		B094CF3911EED5590051C31A /* libNMapViewer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNMapViewer.a; path = Lib/NMapViewer/libNMapViewer.a; sourceTree = SOURCE_ROOT; };
 		B0CAC1891175B98D00F882BD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		B0CAC18D1175B9AD00F882BD /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		B0CAC1A71175BDFC00F882BD /* NMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMapViewController.h; sourceTree = "<group>"; };
 		B0CAC1A81175BDFC00F882BD /* NMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMapViewController.m; sourceTree = "<group>"; };
+		EEE6BDF51BC3FDDD00F75CFB /* libNMapViewer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNMapViewer.a; path = Lib/NMapViewer/libNMapViewer.a; sourceTree = "<group>"; };
+		EEE6BDF71BC3FDE900F75CFB /* libApiGateway-MAC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libApiGateway-MAC.a"; path = "Lib/ApiGateway/libApiGateway-MAC.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,12 +116,11 @@
 				B089F5601679EF010055D6B2 /* SystemConfiguration.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				EEE6BDF81BC3FDE900F75CFB /* libApiGateway-MAC.a in Frameworks */,
+				EEE6BDF61BC3FDDD00F75CFB /* libNMapViewer.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				B0CAC18A1175B98D00F882BD /* QuartzCore.framework in Frameworks */,
-				B0CAC18E1175B9AD00F882BD /* libsqlite3.0.dylib in Frameworks */,
 				B086408611885C73005E4A84 /* CoreLocation.framework in Frameworks */,
-				B0864C01118AC11C005E4A84 /* libApiGateway-MAC.a in Frameworks */,
-				B094CF3A11EED5590051C31A /* libNMapViewer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,11 +213,10 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EEE6BDF71BC3FDE900F75CFB /* libApiGateway-MAC.a */,
+				EEE6BDF51BC3FDDD00F75CFB /* libNMapViewer.a */,
 				B089F55F1679EF010055D6B2 /* SystemConfiguration.framework */,
-				B094CF3911EED5590051C31A /* libNMapViewer.a */,
-				B0864C00118AC11C005E4A84 /* libApiGateway-MAC.a */,
 				B086408511885C73005E4A84 /* CoreLocation.framework */,
-				B0CAC18D1175B9AD00F882BD /* libsqlite3.0.dylib */,
 				B0CAC1891175B98D00F882BD /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -340,9 +336,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -352,17 +347,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Lib/ApiGateway\"",
-					"\"$(SRCROOT)/Lib/NMapViewer\"",
+					"$(PROJECT_DIR)/Lib/NMapViewer",
+					"$(PROJECT_DIR)/Lib/ApiGateway",
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
 					"-all_load",
 				);
 				PRODUCT_NAME = NMapViewerLib;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -374,9 +368,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = NMapViewerLib_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -384,16 +377,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Lib/ApiGateway\"",
-					"\"$(SRCROOT)/Lib/NMapViewer\"",
+					"$(PROJECT_DIR)/Lib/NMapViewer",
+					"$(PROJECT_DIR)/Lib/ApiGateway",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
 					"-all_load",
 				);
 				PRODUCT_NAME = NMapViewerLib;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -401,8 +394,8 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: KJ KIM (DKFJJ48B3E)";
+				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -410,7 +403,7 @@
 					"./Lib/**",
 					/usr/include/libxml2,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MACH_O_TYPE = mh_execute;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -418,7 +411,6 @@
 					"-lxml2",
 					"-all_load",
 				);
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AB947C3B-D68F-4E2E-AE55-58C47BB5D2B2";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -426,8 +418,8 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: KJ KIM (DKFJJ48B3E)";
+				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -435,11 +427,12 @@
 					"./Lib/**",
 					/usr/include/libxml2,
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
 				);
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53D409F7-2262-4EAB-B52E-6BBC01EEBC29";
 				SDKROOT = iphoneos;
 			};
 			name = Release;

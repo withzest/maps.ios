@@ -14,4 +14,5 @@
 
 // encrypt an url by HMAC-SHA1 algorithm with key provided by NHNAPIGatewayKey.properties file.
 + (NSString *) encryptUrl:(NSString *)url;
++ (NSString *) encryptUrl:(NSString *)url key:(NSString *)key;
 @end
