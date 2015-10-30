@@ -50,8 +50,8 @@
 		B089F5601679EF010055D6B2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B089F55F1679EF010055D6B2 /* SystemConfiguration.framework */; };
 		B0CAC18A1175B98D00F882BD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0CAC1891175B98D00F882BD /* QuartzCore.framework */; };
 		B0CAC1A91175BDFC00F882BD /* NMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0CAC1A81175BDFC00F882BD /* NMapViewController.m */; };
-		EEE6BDF61BC3FDDD00F75CFB /* libNMapViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE6BDF51BC3FDDD00F75CFB /* libNMapViewer.a */; settings = {ASSET_TAGS = (); }; };
-		EEE6BDF81BC3FDE900F75CFB /* libApiGateway-MAC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE6BDF71BC3FDE900F75CFB /* libApiGateway-MAC.a */; settings = {ASSET_TAGS = (); }; };
+		EEE6BDF61BC3FDDD00F75CFB /* libNMapViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE6BDF51BC3FDDD00F75CFB /* libNMapViewer.a */; };
+		EEE6BDF81BC3FDE900F75CFB /* libApiGateway-MAC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE6BDF71BC3FDE900F75CFB /* libApiGateway-MAC.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -350,7 +350,7 @@
 					"$(PROJECT_DIR)/Lib/NMapViewer",
 					"$(PROJECT_DIR)/Lib/ApiGateway",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -380,7 +380,7 @@
 					"$(PROJECT_DIR)/Lib/NMapViewer",
 					"$(PROJECT_DIR)/Lib/ApiGateway",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -405,7 +405,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MACH_O_TYPE = mh_execute;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -428,7 +428,7 @@
 					/usr/include/libxml2,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
