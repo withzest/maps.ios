@@ -435,7 +435,8 @@
 	[_mapView setDelegate:self];	
 	
 	// set API key for Open MapViewer Library
-	[_mapView setApiKey:kApiKey];		
+//    [_mapView setApiKey:kApiKey];
+	[_mapView setClientId:kClientID];
 	
 	[self.view addSubview:_mapView];			
 	[self addBottomBar];	

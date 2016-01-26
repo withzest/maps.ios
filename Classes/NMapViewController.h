@@ -12,7 +12,9 @@
 #import "NMapLocationManager.h"
 
 // Set API key for Open MapViewer libarary.
-#define kApiKey @"Your API Key"
+#define kApiKey @"Your API Key"         //api key is deprecated
+#define kClientID @"Your Client ID"     //get your clientID from developers.naver.com
+
 
 @interface NMapViewController : UIViewController<UIActionSheetDelegate,
 						NMapViewDelegate, NMapPOIdataOverlayDelegate, 

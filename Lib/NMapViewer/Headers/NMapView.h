@@ -101,10 +101,13 @@ typedef enum {
 
 /**
  * Set API key for MapViewer Library.
- *
+ * Until 2016, old open API key will be valid.
+ * Please visit developers.naver.com, and get new open API ID.
+ * You can use this library using setClientId:(NSString *)clientId method instead of setApiKey:(NSString*)apiKey
  * @param apiKey registered API key for NMapViewer library.
  */
-- (void) setApiKey:(NSString *)apiKey;
+- (void)setApiKey:(NSString *)apiKey __attribute__((deprecated("open API has been changed. plz, visit developers.naver.com")));
+- (void)setClientId:(NSString *)clientId;
 
 /**
  * Set application name for partners.
