@@ -18,17 +18,17 @@
 //
 // MapView Status
 //
-typedef enum {
+typedef NS_ENUM(NSInteger, NMapViewStatus) {
 	NMapViewStatusUnknown,
 	NMapViewStatusBeginAnimation,
 	NMapViewStatusEndAnimation,
-} NMapViewStatus;
+};
 
 
 //
 // Map View Mode
 //
-typedef enum {
+typedef NS_ENUM(NSInteger, NMapViewMode) {
 	NMapViewModeVector = 0,
 	NMapViewModeSatellite,
 	NMapViewModeHybrid,
@@ -36,7 +36,7 @@ typedef enum {
 	NMapViewModePanorama,
 	NMapViewModeBicycle,
 	NMapViewModeMax
-} NMapViewMode;
+};
 
 
 // INTERFACES:
@@ -46,7 +46,7 @@ typedef enum {
 @protocol NMapViewDelegate;
 
 // FIXME: interface
-@interface NMapView : NMapViewQuartz
+@interface NMapView : NMapViewQuartz <CAAnimationDelegate>
 {
 	NMapViewInternal *_internal;
 
@@ -86,6 +86,8 @@ typedef enum {
 
 // map panning with touch move event, default is YES
 @property (nonatomic, assign) BOOL panWithTouchMoveEventEnabled;
+
+- (void) setMapCenterAfterInitFinished:(id)ignore;
 
 /**
  * Check if a given location is valid for NMapView.

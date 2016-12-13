@@ -27,48 +27,22 @@
 
 @implementation NMapViewController
 
-//- (void) setLogoImageOffset
-//{
-//	if (_toolbar && ![_toolbar isHidden]) {
-//		[_mapView setLogoImageOffsetX:10 offsetY:(10 + _toolbar.frame.size.height)];
-//	} else {
-//		[_mapView setLogoImageOffsetX:10 offsetY:10];
-//	}
-//}
-
-- (void) setToolbarFrame
-{
-	CGFloat toolbarHeight = [_toolbar frame].size.height;
-	CGRect mainViewBounds = self.view.bounds;
-	[_toolbar setFrame:CGRectMake(CGRectGetMinX(mainViewBounds),
-								  CGRectGetMinY(mainViewBounds) + CGRectGetHeight(mainViewBounds) - toolbarHeight,
-								  CGRectGetWidth(mainViewBounds),
-								  toolbarHeight)];			
-
-//	[self setLogoImageOffset];
-}
 - (void) addBottomBar
 {
-	UIToolbar *toolbar = [UIToolbar new];
-	toolbar.barStyle = UIBarStyleBlackOpaque;
-	
-//	UIBarButtonItem *flexItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-//																			   target:nil
-//																			   action:nil] autorelease];
 	UIBarButtonItem *locItem = [[[UIBarButtonItem alloc] initWithTitle:kMyLocationStr
-																 style:UIBarButtonItemStyleBordered
+																 style:UIBarButtonItemStylePlain
 																target:self
 																action:@selector(findMyLocation:)] autorelease];
 	UIBarButtonItem *mapModeItem = [[[UIBarButtonItem alloc] initWithTitle:kMapModeStr
-																	 style:UIBarButtonItemStyleBordered
+																	 style:UIBarButtonItemStylePlain
 																	target:self
 																	action:@selector(mapModeAction:)] autorelease];
 	UIBarButtonItem *clearMapItem = [[[UIBarButtonItem alloc] initWithTitle:kClearMapStr
-																	  style:UIBarButtonItemStyleBordered
+																	  style:UIBarButtonItemStylePlain
 																	 target:self
 																	 action:@selector(clearMap:)] autorelease];	
 	UIBarButtonItem *testModeItem = [[[UIBarButtonItem alloc] initWithTitle:KTestModeStr
-																	  style:UIBarButtonItemStyleBordered
+																	  style:UIBarButtonItemStylePlain
 																	 target:self
 																	 action:@selector(testModeAction:)] autorelease];	
 	NSArray *items = [NSArray arrayWithObjects: 
@@ -77,16 +51,12 @@
 					  clearMapItem,
 					  testModeItem,
 					  nil];
-	toolbar.items = items;
+	_toolbar.items = items;
 	
 	// size up the toolbar and set its frame
-	[toolbar sizeToFit];
-	_toolbar = toolbar;	
-	[self setToolbarFrame];
+	[_toolbar sizeToFit];
 	
-	[toolbar.layer setOpacity:0.9];
-	
-	[self.view addSubview:toolbar];	
+	[_toolbar.layer setOpacity:0.9];
 }
 
 - (void) setMapViewVisibleBounds
@@ -97,7 +67,7 @@
 	CGRect boundsVisible = frameOfParentView;
 
 	if (![_toolbar isHidden]) {
-		boundsVisible.size.height -= _toolbar.frame.size.height;
+        boundsVisible.size.height -= _toolbar.frame.size.height;
 	}	
 	
 	[_mapView setBoundsVisible:boundsVisible];
@@ -112,7 +82,7 @@
 			[_mapView setAutoRotateEnabled:NO];			
 		} else {					
 			// set rotate angle of map view
-			[_mapView setRotateAngle:headingValue];	
+            [_mapView setRotateAngle:(CGFloat) headingValue];
 		}				
 	}
 }
@@ -184,7 +154,7 @@
 	NMapOverlayManager *mapOverlayManager = [_mapView mapOverlayManager];
 	
 	// create POI data overlay
-	NMapPOIdataOverlay *poiDataOverlay = [mapOverlayManager createPOIdataOverlay];
+	NMapPOIdataOverlay *poiDataOverlay = [mapOverlayManager newPOIdataOverlay];
 	
 	[poiDataOverlay initPOIdata:3];		
 	[poiDataOverlay addPOIitemAtLocation:NGeoPointMake(126.979, 37.567) title:@"마커 1" type:NMapPOIflagTypePin iconIndex:0 withObject:nil];
@@ -204,7 +174,7 @@
 	NMapOverlayManager *mapOverlayManager = [_mapView mapOverlayManager];	
 	
 	// create path POI data overlay
-	NMapPOIdataOverlay *pathPOIdataOverlay = [mapOverlayManager createPOIdataOverlay];
+	NMapPOIdataOverlay *pathPOIdataOverlay = [mapOverlayManager newPOIdataOverlay];
 	
 	if (pathPOIdataOverlay) {		
 		[pathPOIdataOverlay initPOIdata:4];
@@ -234,7 +204,7 @@
 	[pathData endPathData];
 	
 	// create path data overlay
-	NMapPathDataOverlay *pathDataOverlay = [mapOverlayManager createPathDataOverlay:pathData];
+	NMapPathDataOverlay *pathDataOverlay = [mapOverlayManager newPathDataOverlay:pathData];
 	if (pathDataOverlay) {
         
         // add path data with polygon type
@@ -283,7 +253,7 @@
 	NMapOverlayManager *mapOverlayManager = [_mapView mapOverlayManager];
 	
 	// create POI data overlay
-	NMapPOIdataOverlay *poiDataOverlay = [mapOverlayManager createPOIdataOverlay];
+	NMapPOIdataOverlay *poiDataOverlay = [mapOverlayManager newPOIdataOverlay];
 	
 	// set POI data
 	[poiDataOverlay initPOIdata:1];	
@@ -303,7 +273,7 @@
 		
 	_mapPOIdataOverlay = [poiDataOverlay retain];
 	
-	[poiDataOverlay release];		
+	[poiDataOverlay release];
 }
 
 - (void)testAutoRotate {
@@ -335,7 +305,7 @@
 }
 
 - (void)mapModeAction:(id)sender
-{	
+{
 	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:kMapModeStr delegate:self 
 													cancelButtonTitle:kCancelStr destructiveButtonTitle:nil otherButtonTitles:nil];
 	actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
@@ -351,11 +321,12 @@
 		[actionSheet addButtonWithTitle:[NSString stringWithFormat:@"%@ Off", KMapModeBicycleStr]];
 	} else {
 		[actionSheet addButtonWithTitle:[NSString stringWithFormat:@"%@ On", KMapModeBicycleStr]];
-	}	
+	}
 	
 	[actionSheet showInView:self.view]; 
 	[actionSheet release];
 }
+
 - (void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 	//NSLog(@"actionSheet:%@ clickedButtonAtIndex: %d", [actionSheet title], buttonIndex);
@@ -373,8 +344,8 @@
 				break;
 			case 4:
 				[_mapView setMapViewBicycleMode:(![_mapView mapViewBicycleMode])];
-				break;				
-		}	
+				break;
+		}
 	}
 	
 	if ([[actionSheet title] isEqualToString:KTestModeStr]) {
@@ -390,7 +361,7 @@
 				break;	
 			case 4:
 				[self testAutoRotate];
-				break;		
+				break;
 		}
 	}
 }
@@ -411,37 +382,31 @@
 	[actionSheet release];
 }
 
-- (void)loadView {
-	CGRect frame = [[UIScreen mainScreen] bounds];	
-	frame.origin.y += 20;
-	frame.size.height -= 20;
-	
-	// add the top-most parent view
-	UIView *contentView = [[UIView alloc] initWithFrame:frame];
-	[contentView setAutoresizingMask: (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
-    [contentView setAutoresizesSubviews: YES];
-	self.view = contentView;
-	[contentView release];	
-	
-	frame.origin.y = 0;
-	
-	// create map view
-	_mapView = [[NMapView alloc] initWithFrame:frame];
-	
-	// set delegate to use reverse geocoder API
-	[_mapView setReverseGeocoderDelegate:self];
-	
-	// set delegate for map view
-	[_mapView setDelegate:self];	
-	
-	// set API key for Open MapViewer Library
-//    [_mapView setApiKey:kApiKey];
-	[_mapView setClientId:kClientID];
-	
-	[self.view addSubview:_mapView];			
-	[self addBottomBar];	
-	
-	[self setMapViewVisibleBounds];
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    
+    // create map view
+    _mapView = [[NMapView alloc] initWithFrame:self.view.frame];
+
+    // set delegate to use reverse geocoder API
+    [_mapView setReverseGeocoderDelegate:self];
+    
+    // set delegate for map view
+    [_mapView setDelegate:self];
+
+    // set ClientID for Open MapViewer Library
+    [_mapView setClientId:kClientID];
+
+    self.navigationController.navigationBar.translucent = NO;
+    _mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.title = kApplicationName;
+    
+    [self.view addSubview:_mapView];
+    [self addBottomBar];	
+    [self.view bringSubviewToFront:_toolbar];
+    
+    [self setMapViewVisibleBounds];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -454,20 +419,29 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
 	[_mapView viewWillAppear];
 }
+
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
 	[_mapView viewDidAppear];
 }
+
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
 	[_mapView viewWillDisappear];
     
     [self stopLocationUpdating];
 }
 - (void)viewDidDisappear:(BOOL)animated {
-	[_mapView viewDidDisappear];
-}
+    [super viewDidDisappear:animated];
 
+    [_mapView viewDidDisappear];
+}
 
 - (void)dealloc {
 	
@@ -475,8 +449,6 @@
 	
     [_mapView setDelegate:nil];
 	[_mapView release];
-	
-	[_toolbar release];
 	
     [super dealloc];
 }
@@ -541,8 +513,6 @@
 - (void) onMapView:(NMapView *)mapView handleSingleTapGesture:(UIGestureRecognizer*)recogniser {
     
     [_toolbar setHidden:![_toolbar isHidden]];
-    
-//	[self setLogoImageOffset];
     
     [self setMapViewVisibleBounds];
 }
@@ -667,10 +637,9 @@
 	NMapPOIitem *poiItem = [[poiDataOverlay poiData] objectAtIndex:index];
 	
 	if (poiItem.title) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"NMapViewer" message:poiItem.title
-													   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:kApplicationName message:poiItem.title
+													   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] autorelease];
 		[alert show];	
-		[alert release];			
 	}
 	
 	return YES;
@@ -745,7 +714,7 @@
 	}
 	
 	if (message) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"NMapViewer" message:message
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:kApplicationName message:message
 													   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
 		[alert show];	
 		[alert release];			

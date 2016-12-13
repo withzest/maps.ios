@@ -10,25 +10,13 @@
 
 @implementation NMapViewerLibAppDelegate
 
-@synthesize window;
-
-
-- (void)applicationDidFinishLaunching:(UIApplication *)application
-{
-    mapViewController = [[NMapViewController alloc] init];
-    window.rootViewController = mapViewController;
-	
-    // Override point for customization after application launch
-    [window makeKeyAndVisible];
+- (void)applicationDidFinishLaunching:(UIApplication *)application {    
 }
 
-
-- (void)dealloc
-{
-	[mapViewController release];
-    [window release];
+- (void)dealloc {
+    [self setWindow:nil];
+    
     [super dealloc];
 }
-
 
 @end

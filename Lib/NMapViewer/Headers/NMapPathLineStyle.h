@@ -8,15 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
+typedef NS_ENUM(NSInteger, NMapPathLineType) {
+    NMapPathLineTypeNone = 0,
 	NMapPathLineTypeSolid = 1,
 	NMapPathLineTypeDash,
-} NMapPathLineType;
+};
 
-typedef enum {
+typedef NS_ENUM(NSInteger, NMapPathDataType) {
 	NMapPathDataTypePolyline, // polyline
 	NMapPathDataTypePolygon, // polygon
-} NMapPathDataType;
+};
 
 // FIXME: interface
 @interface NMapPathLineStyle : NSObject {

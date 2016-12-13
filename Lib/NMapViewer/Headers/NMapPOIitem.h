@@ -19,25 +19,22 @@ typedef int NMapPOIflagType;
 //
 // POI flag type : Reserved
 //
-enum {
-	NMapPOIflagTypeUnknown = 0,
+static const NMapPOIflagType NMapPOIflagTypeUnknown = 0;
+static const NMapPOIflagType NMapPOIflagTypeLocation = 10; // show pin object with "Location" icon
+static const NMapPOIflagType NMapPOIflagTypeLocationOff = 11; // show pin object with "Location Off" icon
+static const NMapPOIflagType NMapPOIflagTypeCompass = 12;
 
-	NMapPOIflagTypeLocation = 10, // show pin object with "Location" icon
-	NMapPOIflagTypeLocationOff = 11, // show pin object with "Location Off" icon
-	NMapPOIflagTypeCompass = 12,
-
-	NMapPOIflagTypeReserved = 0x100
-};
+static const NMapPOIflagType NMapPOIflagTypeReserved = 0x100;
 
 //
 // POI flag mode
 //
-typedef enum {
+typedef NS_ENUM(NSInteger, NMapPOIflagMode) {
 	NMapPOIflagModeTouch, // set POI item with touch and drag mode
 	NMapPOIflagModeDrag, // set POI item with drag mode
 	NMapPOIflagModeFixed, // set POI item fixed
 	NMapPOIflagModeDispatch // set POI item fixed and dispatchable
-} NMapPOIflagMode;
+};
 
 //
 // for POI object handling

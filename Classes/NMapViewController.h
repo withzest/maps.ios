@@ -11,6 +11,8 @@
 #import "NMapView.h"
 #import "NMapLocationManager.h"
 
+#define kApplicationName @"Naver Map Sample"
+
 // Set API key for Open MapViewer libarary.
 #define kApiKey @"Your API Key"         //api key is deprecated
 #define kClientID @"Your Client ID"     //get your clientID from developers.naver.com
@@ -22,8 +24,8 @@
 	NMapView *_mapView;
 	
 	NMapPOIdataOverlay *_mapPOIdataOverlay;
-
-	UIToolbar *_toolbar; 
+                            
+    IBOutlet UIToolbar *_toolbar;
 }
 
 @end

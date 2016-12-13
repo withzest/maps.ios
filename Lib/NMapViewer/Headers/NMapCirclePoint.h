@@ -61,6 +61,11 @@
 - (float) radius:(NMapView *)mapView;
 
 /**
+ *  Get radius in utmk(naver).
+ */
+- (float) radiusInUtmk;
+
+/**
  * Get the screen coordinates of this path point, relative to the top-left of the NMapView.
  */
 - (CGPoint) screenPosition:(NMapView *)mapView viewPortOrigin:(NGRect *)viewPortOrigin;

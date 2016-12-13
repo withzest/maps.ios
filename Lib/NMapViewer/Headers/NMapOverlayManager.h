@@ -120,21 +120,21 @@
 
 // create POI data overlay and add to the overlay layers
 // returned object should be released by the caller.
-- (NMapPOIdataOverlay *) createPOIdataOverlay; // [[DEPRECATED]] use newPOIdataOverlay
-- (NMapPOIdataOverlay *) createPOIdataOverlay:(BOOL)spreadable; // [[DEPRECATED]] use newPOIdataOverlay
+- (NMapPOIdataOverlay *) createPOIdataOverlay __deprecated_msg("use newPOIdataOverlay instead."); // [[DEPRECATED]] use newPOIdataOverlay
+- (NMapPOIdataOverlay *) createPOIdataOverlay:(BOOL)spreadable __deprecated_msg("use newPOIdataOverlay instead."); // [[DEPRECATED]] use newPOIdataOverlay
 // zPositionClass adjust zPosition of layers
-- (NMapPOIdataOverlay *) createPOIdataOverlay:(BOOL)spreadable zPosition:(NMapOverlayZPosition)zPosition; // [[DEPRECATED]] use newPOIdataOverlay
+- (NMapPOIdataOverlay *) createPOIdataOverlay:(BOOL)spreadable zPosition:(NMapOverlayZPosition)zPosition __deprecated_msg("use newPOIdataOverlay instead."); // [[DEPRECATED]] use newPOIdataOverlay
 
 // create Path data overlay and add to the overlay layers
 // returned object should be released by the caller.
-- (NMapPathDataOverlay *) createPathDataOverlay:(NMapPathData *)pathData; // [[DEPRECATED]] use newPathDataOverlay
+- (NMapPathDataOverlay *) createPathDataOverlay:(NMapPathData *)pathData __deprecated_msg("use newPathDataOverlay instead."); // [[DEPRECATED]] use newPathDataOverlay
 // zPositionClass adjust zPosition of layers
 - (NMapPathDataOverlay *) createPathDataOverlay:(NMapPathData *)pathData 
-                                      zPosition:(NMapOverlayZPosition)zPosition; // [[DEPRECATED]] use newPathDataOverlay
+                                      zPosition:(NMapOverlayZPosition)zPosition __deprecated_msg("use newPathDataOverlay instead."); // [[DEPRECATED]] use newPathDataOverlay
 
 // create radius data overlay and add to the overlay layers
 // returned object should be released by the caller.
-- (NMapRadiusSettingOverlay *) createRadiusSettingOverlay; // [[DEPRECATED]] use newRadiusSettingOverlay
+- (NMapRadiusSettingOverlay *) createRadiusSettingOverlay __deprecated_msg("use newRadiusSettingOverlay instead."); // [[DEPRECATED]] use newRadiusSettingOverlay
 
 // return array of NMapOverlay layers
 - (NSArray *) overlays;

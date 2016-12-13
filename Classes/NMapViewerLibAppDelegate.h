@@ -10,13 +10,9 @@
 
 #import "NMapViewController.h"
 
-@interface NMapViewerLibAppDelegate : NSObject <UIApplicationDelegate> {
-    UIWindow *window;
+@interface NMapViewerLibAppDelegate : NSObject <UIApplicationDelegate>
 
-	NMapViewController *mapViewController;
-}
-
-@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (retain, nonatomic) UIWindow *window;
 
 @end
 

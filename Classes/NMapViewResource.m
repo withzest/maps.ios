@@ -60,7 +60,17 @@ static UIImage* makeNumberIconImage(NSString *backImageName, float color, int ic
 	else if (iconNumber < 100) actualFontSize = 11; // for 2 digits
 	// text size
 	UIFont *font = [UIFont boldSystemFontOfSize:actualFontSize];
-	CGSize sizeText = [iconText sizeWithFont:font constrainedToSize:iconSize lineBreakMode:UILineBreakModeTailTruncation];
+//	CGSize sizeText = [iconText sizeWithFont:font constrainedToSize:iconSize lineBreakMode:NSLineBreakByTruncatingTail];
+    
+    NSMutableParagraphStyle *textParagraphStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
+    textParagraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+
+    CGRect boundText = [iconText boundingRectWithSize:iconSize
+                                             options:(NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingUsesFontLeading)
+                                          attributes:@{NSFontAttributeName: font,
+                                                       NSParagraphStyleAttributeName: textParagraphStyle} context:nil];
+    CGSize sizeText = boundText.size;
+
 	
 	// create High-Resolution Bitmap Images Programmatically
 	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 4.0) {
@@ -69,7 +79,7 @@ static UIImage* makeNumberIconImage(NSString *backImageName, float color, int ic
 		UIGraphicsBeginImageContext(imageSize);
 	}	
     
-    CGContextRef context = UIGraphicsGetCurrentContext();
+//    CGContextRef context = UIGraphicsGetCurrentContext();
 	
 	// set fill color
 	//CGContextSetRGBFillColor(context, 1.0, 0.0, 0.0, 1.0);
@@ -93,11 +103,14 @@ static UIImage* makeNumberIconImage(NSString *backImageName, float color, int ic
 	// to prevent blur effect
 	rectText.origin.x = roundf(rectText.origin.x);
 	rectText.origin.y = roundf(rectText.origin.y);
-	
-	// set fill color
-	CGContextSetRGBFillColor(context, color, color, color, 1.0);		
-	[iconText drawAtPoint:rectText.origin forWidth:rectText.size.width withFont:font lineBreakMode:UILineBreakModeTailTruncation];			
-	
+		
+    // set fill color
+    UIColor *fontColor = [UIColor colorWithRed:color green:color blue:color alpha:1.0];
+    
+    [iconText drawInRect:rectText withAttributes:@{NSFontAttributeName: font,
+                                                  NSForegroundColorAttributeName: fontColor,
+                                                  NSParagraphStyleAttributeName: textParagraphStyle}];
+    
 	// get image
 	UIImage *iconImage = UIGraphicsGetImageFromCurrentImageContext();	
 	
@@ -297,7 +310,7 @@ static UIImage* makeNumberIconImage(NSString *backImageName, float color, int ic
     // account for headerText
 	CGSize tailTextSize = CGSizeZero;
 	if (tailText) {
-		tailTextSize = [tailText sizeWithFont:font];
+        tailTextSize = [tailText sizeWithAttributes:@{NSFontAttributeName: font}];
         
 		if (tailTextSize.width > 0) {
 			constraintSize.width -= tailTextSize.width;
@@ -305,7 +318,14 @@ static UIImage* makeNumberIconImage(NSString *backImageName, float color, int ic
 	}
     
 	// adjust text size
-	CGSize sizeText = [strText sizeWithFont:font constrainedToSize:constraintSize lineBreakMode:UILineBreakModeTailTruncation];
+    NSMutableParagraphStyle *textParagraphStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
+    textParagraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+
+    CGRect boundText = [strText boundingRectWithSize:constraintSize
+                                         options:(NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingUsesFontLeading)
+                                                  attributes:@{NSFontAttributeName: font,
+                                                               NSParagraphStyleAttributeName: textParagraphStyle} context:nil];
+    CGSize sizeText = boundText.size;
     
     CGSize sizeContent = sizeText;
 	if (tailTextSize.width > 0) {
@@ -411,13 +431,14 @@ static UIImage* makeNumberIconImage(NSString *backImageName, float color, int ic
 	rectText.origin.y = roundf(rectText.origin.y);
     
 	// set fill color
+    UIColor *fontColor = [UIColor whiteColor];
 	if (selected) {
-		CGContextSetRGBFillColor(context, 0x9c/255.0, 0xa1/255.0, 0xaa/255.0, 1.0);
-	} else {
-		CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 1.0);
+        fontColor = [UIColor colorWithRed:0x9c/255.0 green:0xa1/255.0 blue:0xaa/255.0 alpha:1.0];
 	}
-	[strText drawAtPoint:rectText.origin forWidth:rectText.size.width 
-                withFont:font lineBreakMode:UILineBreakModeTailTruncation];
+    
+    [strText drawInRect:rectText withAttributes:@{NSFontAttributeName: font,
+                                                   NSForegroundColorAttributeName: fontColor,
+                                                   NSParagraphStyleAttributeName: textParagraphStyle}];
     
     pt.x = rectText.origin.x + rectText.size.width;
     
@@ -431,8 +452,9 @@ static UIImage* makeNumberIconImage(NSString *backImageName, float color, int ic
         rectText.origin.x = roundf(rectText.origin.x);
         rectText.origin.y = roundf(rectText.origin.y);
         
-        [tailText drawAtPoint:rectText.origin forWidth:rectText.size.width 
-                     withFont:font lineBreakMode:UILineBreakModeTailTruncation];
+        [tailText drawInRect:rectText withAttributes:@{NSFontAttributeName: font,
+                                                       NSForegroundColorAttributeName: fontColor,
+                                                       NSParagraphStyleAttributeName: textParagraphStyle}];
     }
     
 	// draw arrow

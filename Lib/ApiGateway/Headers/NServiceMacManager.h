@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NMacCommonManager.h"
 
 
-@interface NServiceMacManager : NSObject {
+@interface NServiceMacManager : NMacCommonManager {
 }
+
++ (void)setServiceId:(NSString *)serviceId;
++ (void)setServiceKey:(NSString *)key;
 
 // encrypt an url by HMAC-SHA1 algorithm with key provided by NHNAPIGatewayKey.properties file.
 + (NSString *) encryptUrl:(NSString *)url;

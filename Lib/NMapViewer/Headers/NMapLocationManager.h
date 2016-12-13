@@ -10,14 +10,14 @@
 #import <CoreLocation/CoreLocation.h>
 #import <CoreLocation/CLLocationManagerDelegate.h>
 
-typedef enum {
+typedef NS_ENUM(NSInteger, NMapLocationManagerErrorType) {
 	NMapLocationManagerErrorTypeTimeout,
 	NMapLocationManagerErrorTypeUnavailableArea,
 	NMapLocationManagerErrorTypeCanceled,
 	NMapLocationManagerErrorTypeDenied,
 	NMapLocationManagerErrorTypeUnknown,
 	NMapLocationManagerErrorTypeHeading,
-} NMapLocationManagerErrorType;
+};
 
 
 @class CLLocationManager;
