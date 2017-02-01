@@ -73,6 +73,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [self clearOverlays];
     [self.mapView viewWillDisappear];
+    [super viewWillDisappear:animated];
 }
 
 - (void) addPolygons {
