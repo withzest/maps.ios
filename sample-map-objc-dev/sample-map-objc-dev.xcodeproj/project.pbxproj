@@ -26,6 +26,8 @@
 		4AF4D65B1DE2F2410021A026 /* RotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF4D65A1DE2F2410021A026 /* RotationViewController.m */; };
 		4AF4D6981DE5670B0021A026 /* NMapViewResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF4D6971DE5670B0021A026 /* NMapViewResources.m */; };
 		4AF4D69A1DE67D560021A026 /* NMapViewerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF4D6991DE67D560021A026 /* NMapViewerSDK.framework */; };
+		EE9F2E4B1E65739B0031C609 /* ApiGatewayMac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE9F2E4A1E65739B0031C609 /* ApiGatewayMac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE9F2E4D1E6573C80031C609 /* ApiGatewayMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9F2E4A1E65739B0031C609 /* ApiGatewayMac.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,20 @@
 			remoteInfo = "sample-map-objc-dev";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EE9F2E471E6573210031C609 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EE9F2E4B1E65739B0031C609 /* ApiGatewayMac.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4AF4D5F81DDC30690021A026 /* sample-map-objc-dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sample-map-objc-dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +99,7 @@
 		4AF4D6961DE5670B0021A026 /* NMapViewResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMapViewResources.h; path = "sample-map-objc-dev/NMapViewResources.h"; sourceTree = "<group>"; };
 		4AF4D6971DE5670B0021A026 /* NMapViewResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMapViewResources.m; path = "sample-map-objc-dev/NMapViewResources.m"; sourceTree = "<group>"; };
 		4AF4D6991DE67D560021A026 /* NMapViewerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMapViewerSDK.framework; path = ../Frameworks/NMapViewerSDK.framework; sourceTree = "<group>"; };
+		EE9F2E4A1E65739B0031C609 /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApiGatewayMac.framework; path = ../Frameworks/ApiGatewayMac.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9F2E4D1E6573C80031C609 /* ApiGatewayMac.framework in Frameworks */,
 				4AF4D69A1DE67D560021A026 /* NMapViewerSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,6 +196,7 @@
 		4AF4D62E1DDC36800021A026 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE9F2E4A1E65739B0031C609 /* ApiGatewayMac.framework */,
 				4AF4D6991DE67D560021A026 /* NMapViewerSDK.framework */,
 			);
 			name = Frameworks;
@@ -220,6 +239,8 @@
 				4AF4D5F41DDC30690021A026 /* Sources */,
 				4AF4D5F51DDC30690021A026 /* Frameworks */,
 				4AF4D5F61DDC30690021A026 /* Resources */,
+				EE9F2E471E6573210031C609 /* Embed Frameworks */,
+				EE9F2E4F1E6578220031C609 /* Strip Frameworks */,
 			);
 			buildRules = (
 			);
@@ -337,6 +358,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EE9F2E4F1E6578220031C609 /* Strip Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Strip Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh ../Frameworks/strip-frameworks.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4AF4D5F41DDC30690021A026 /* Sources */ = {
@@ -517,7 +555,7 @@
 					"-ObjC",
 					"-lxml2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.naver.sample-map-objc-dev";
+				PRODUCT_BUNDLE_IDENTIFIER = com.naver.sampleMapObjC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -540,7 +578,7 @@
 					"-ObjC",
 					"-lxml2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.naver.sample-map-objc-dev";
+				PRODUCT_BUNDLE_IDENTIFIER = com.naver.sampleMapObjC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
