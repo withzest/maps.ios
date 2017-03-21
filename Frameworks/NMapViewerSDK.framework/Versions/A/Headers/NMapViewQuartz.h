@@ -44,6 +44,7 @@
 @property (nonatomic, assign) BOOL isAnimating;
 @property (nonatomic, assign) BOOL isPanning;
 @property (nonatomic, assign) BOOL isPanAnimating;
+@property (nonatomic, assign) BOOL dimmedMode;
 
 @end //NMapViewQuartz
 
