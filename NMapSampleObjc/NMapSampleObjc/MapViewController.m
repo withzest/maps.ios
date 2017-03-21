@@ -119,15 +119,19 @@ imageForCalloutRightAccessory:(UIImage *)imageForCalloutRightAccessory
                                                           handler:^(UIAlertAction * action) {
                                                               self.mapView.mapViewBicycleMode = !self.mapView.mapViewBicycleMode;
                                                           }];
-    UIAlertAction* dimmedAction = [UIAlertAction actionWithTitle:[NSString stringWithFormat:@"Dimmed layer is %@", (self.mapView.dimmedMode ? @"On" : @"Off")]
-                                                           style:UIAlertActionStyleDefault
-                                                         handler:^(UIAlertAction * action) {
-                                                             self.mapView.dimmedMode = !self.mapView.dimmedMode;
-                                                         }];
+    UIAlertAction* alphaAction = [UIAlertAction actionWithTitle:[NSString stringWithFormat:@"Alpha layer is %@", (self.mapView.mapViewAlphaLayerMode ? @"On" : @"Off")]
+                                                          style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction * action) {
+                                                            self.mapView.mapViewAlphaLayerMode = !self.mapView.mapViewAlphaLayerMode;
+                                                            
+//                                                            지도 위 반투명 레이어에 색을 지정할 때에는 다음 메서드를 사용한다
+//                                                            [self.mapView setMapViewAlphaLayerMode:!self.mapView.mapViewAlphaLayerMode
+//                                                                                         withColor:[UIColor colorWithRed:0.5 green:1.0 blue:0.5 alpha:0.9]];
+                                                        }];
 
     [alertController addAction:trafficAction];
     [alertController addAction:bicycleAction];
-    [alertController addAction:dimmedAction];
+    [alertController addAction:alphaAction];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertController animated:YES completion:nil];
 }

@@ -96,14 +96,17 @@ class MapViewController: UIViewController, NMapViewDelegate, NMapPOIdataOverlayD
                 map.mapViewBicycleMode = !map.mapViewBicycleMode
             })
             
-            let dimmedAction = UIAlertAction(title: "Dimmed layer is " + (map.dimmedMode ? "On" : "Off"), style: .default, handler: { (action) -> Void in
-                print("Dimmed layer Selected...")
-                map.dimmedMode = !map.dimmedMode
+            let alphaAction = UIAlertAction(title: "Alpha layer is " + (map.mapViewAlphaLayerMode ? "On" : "Off"), style: .default, handler: { (action) -> Void in
+                print("Alpha layer Selected...")
+                map.mapViewAlphaLayerMode = !map.mapViewAlphaLayerMode
+                
+//                지도 위 반투명 레이어에 색을 지정할 때에는 다음 메서드를 사용한다
+//                map.setMapViewAlphaLayerMode(!map.mapViewAlphaLayerMode, with: UIColor(red: 0.5, green: 1.0, blue: 0.5, alpha: 0.9))
             })
 
             alertController.addAction(trafficAction)
             alertController.addAction(bicycleAction)
-            alertController.addAction(dimmedAction)
+            alertController.addAction(alphaAction)
         }
 
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

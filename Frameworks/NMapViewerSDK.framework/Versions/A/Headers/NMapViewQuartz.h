@@ -44,7 +44,11 @@
 @property (nonatomic, assign) BOOL isAnimating;
 @property (nonatomic, assign) BOOL isPanning;
 @property (nonatomic, assign) BOOL isPanAnimating;
-@property (nonatomic, assign) BOOL dimmedMode;
+
+@property (nonatomic, assign) BOOL mapViewAlphaLayerMode;
+
+- (void)setMapViewAlphaLayerMode:(BOOL)mode withColor:(nonnull UIColor *)color;
+
 
 @end //NMapViewQuartz
 
