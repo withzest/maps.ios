@@ -36,7 +36,7 @@
         case NMapPOIflagTypeCompass:
             return CGPointMake(0.5, 0.5);
         case UserPOIflagTypeDefault:
-            return CGPointMake(0.5, 1.5);
+            return CGPointMake(0.5, 1.0);
         case UserPOIflagTypeInvisible:
             return CGPointMake(0.5, 0.5);
         default:
