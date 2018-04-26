@@ -4,11 +4,11 @@
 
 Installation
 ==
-- 상세한 내용은 [http://docs.ncloud.com/ko/naveropenapi_v2/naveropenapi-5-5.html] 참조 
+- 상세한 내용은 [http://docs.ncloud.com/ko/naveropenapi_v2/naveropenapi-5-5.html] 참고 
 
 API Document
 ==
-- API 문서 [http://docs.ncloud.com/ko/naveropenapi_v2/naveropenapi-5-5.html] 참조 
+- API 문서 [http://docs.ncloud.com/ko/naveropenapi_v2/naveropenapi-5-5.html] 참고 
 
 Q&A
 ==
