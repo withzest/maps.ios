@@ -5,17 +5,17 @@ iOS용 네이버 지도 라이브러리
 Installation
 ==
 - 상세한 내용은 [https://developers.naver.com/docs/map/tutorial] 참조
-- 네이버 클라우드 플랫폼 사용자의 경우는 [http://docs.ncloud.com/ko/naveropenapi_v2/naveropenapi-5-5.html] 를 참고해 주세요.
+- 네이버 클라우드 플랫폼 사용자 : [http://docs.ncloud.com/ko/naveropenapi_v2/naveropenapi-5-5.html] 를 참고 
 
 API Document
 ==
 - API 문서 [https://developers.naver.com/docs/map/ios] 참조
-- 네이버 클라우드 플랫폼 사용자의 경우는 [http://docs.ncloud.com/ko/naveropenapi_v2/naveropenapi-5-5.html] 를 참고해 주세요.
+- 네이버 클라우드 플랫폼 사용자 : [http://docs.ncloud.com/ko/naveropenapi_v2/naveropenapi-5-5.html] 를 참고 
 
 Q&A
 ==
 - 네이버 개발자 포럼 [http://forum.developers.naver.com/]
-- 네이버 클라우드 플랫폼 사용자의 경우는 추가적인 이용 문의에 대해 [https://www.ncloud.com/support/question/service] 를 이용해 주세요.
+- 네이버 클라우드 플랫폼 사용자의 기타 문의사항 [https://www.ncloud.com/support/question/service] 
 
 License
 -----
