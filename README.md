@@ -15,6 +15,7 @@ API Document
 Q&A
 ==
 - 네이버 개발자 포럼 [http://forum.developers.naver.com/]
+- 네이버 클라우드 플랫폼 사용자의 경우는 추가적인 이용 문의에 대해 [https://www.ncloud.com/support/question/service] 를 이용해 주세요.
 
 License
 -----
